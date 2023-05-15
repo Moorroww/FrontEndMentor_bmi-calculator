@@ -1,0 +1,92 @@
+$color-blue: rgb(52, 95, 246);
+$color-gunmetal: rgb(37, 51, 71);
+$color-dark-electric-blue: rgb(94, 110, 133);
+$color-pure-white: rgb(255, 255, 255);
+$color-borders: rgb(216, 226, 231);
+
+html {
+  font-size: 62.5%;
+  overflow-x: hidden;
+}
+
+body {
+  background-color: $color-pure-white;
+  color: $color-dark-electric-blue;
+  line-height: 150%;
+  max-width: 1440rem;
+  margin: 0 auto;
+  margin-top: 7.5rem;
+  display: grid;
+  grid-template-rows: auto;
+  justify-content: center;
+  row-gap: 12rem;
+  font-size: 1.6rem;
+}
+
+section {
+  max-width: 116rem;
+}
+
+.headingXL {
+  font-size: 6.4rem;
+  font-weight: 600;
+  line-height: 110%;
+  color: $color-gunmetal;
+}
+.headingL {
+  font-size: 4.8rem;
+  font-weight: 600;
+  line-height: 110%;
+  color: $color-gunmetal;
+}
+.headingM {
+  font-size: 2.4rem;
+  font-weight: 600;
+  line-height: 110%;
+  color: $color-gunmetal;
+}
+.headingS {
+  font-size: 2rem;
+  font-weight: 600;
+  line-height: 110%;
+  color: $color-gunmetal;
+}
+
+.paragraphM {
+  font-size: 1.6rem;
+  line-height: 150%;
+  color: $color-gunmetal;
+}
+.paragraphM-Bold {
+  font-size: 1.6rem;
+  line-height: 150%;
+  font-weight: 600;
+  color: $color-gunmetal;
+}
+.paragraphS {
+  font-size: 1.4rem;
+  line-height: 150%;
+  color: $color-gunmetal;
+}
+
+.hidden {
+  display: none !important;
+}
+
+// Scroll
+::-webkit-scrollbar {
+  width: 10px;
+}
+/* Track */
+::-webkit-scrollbar-track {
+  background: $color-borders;
+}
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: rgb(124, 148, 236);
+  border-radius: 9rem;
+}
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: $color-blue;
+}

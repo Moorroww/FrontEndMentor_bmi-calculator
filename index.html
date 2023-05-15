@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="./script.js" defer></script>
+    <link rel="stylesheet" href="./dist/style.css" />
+    <link
+      rel="shortcut icon"
+      href="./assets/favicon-32x32.png"
+      type="image/x-icon"
+    />
+    <title>BMI Calculator</title>
+  </head>
+  <body>
+    <div id="bg-hero-square"></div>
+    <section id="hero">
+      <div id="logo"><img src="./assets/logo.svg" alt="website logo" /></div>
+      <div id="introduction">
+        <h1>
+          Body Mass <br />
+          Index Calculator
+        </h1>
+        <p>
+          Better understand your weight in relation to your height using our
+          body mass index (BM) calculator. While BMI is not the sole determinant
+          of a healthy weight, it offers a valuable starting point to evaluate
+          your overall health and well-being.
+        </p>
+      </div>
+      <div id="calculator">
+        <span id="calculator-heading">Enter your details below</span>
+        <div id="select-calc-system">
+          <input
+            type="radio"
+            name="calc-system"
+            id="metric-calac-system-radio-field"
+            checked="checked"
+          />
+          <label for="metric-calac-system-radio-field">Metric</label>
+          <input
+            type="radio"
+            name="calc-system"
+            id="imperial-calac-system-radio-field"
+          />
+          <label for="imperial-calac-system-radio-field">Imperial</label>
+        </div>
+        <form action="" id="metric-system-form">
+          <label for="height-cm"
+            >Height
+            <span class="form-input-overlays">
+              <input
+                type="number"
+                name="height-cm"
+                id="height-cm"
+                min="0"
+                placeholder="0"
+              />cm
+            </span>
+          </label>
+
+          <label for="weight-kg"
+            >Weight
+            <span class="form-input-overlays">
+              <input
+                type="number"
+                name="weight-kg"
+                id="weight-kg"
+                min="0"
+                placeholder="0"
+              />kg
+            </span>
+          </label>
+        </form>
+
+        <form action="" id="imperial-system-form" class="hidden">
+          <label for="height-ft"
+            >Height
+            <div>
+              <span class="form-input-overlays">
+                <input
+                  type="number"
+                  name="height-ft"
+                  id="height-ft"
+                  min="0"
+                  placeholder="0"
+                />ft
+              </span>
+              <span class="form-input-overlays">
+                <input
+                  type="number"
+                  name="height-in"
+                  id="height-in"
+                  min="0"
+                  placeholder="0"
+                />in
+              </span>
+            </div>
+          </label>
+
+          <label for="weight-st"
+            >Weight
+            <div>
+              <span class="form-input-overlays">
+                <input
+                  type="number"
+                  name="weight-st"
+                  id="weight-st"
+                  min="0"
+                  placeholder="0"
+                />st
+              </span>
+              <span class="form-input-overlays">
+                <input
+                  type="number"
+                  name="weight-lbs"
+                  id="weight-lbs"
+                  min="0"
+                  placeholder="0"
+                />lbs
+              </span>
+            </div>
+          </label>
+        </form>
+
+        <div id="welcome-or-calc-output-container">
+          <span>Welcome!</span>
+          <p>
+            Enter your height and weight and you’ll see your BMI result here
+          </p>
+        </div>
+      </div>
+    </section>
+  </body>
+</html>

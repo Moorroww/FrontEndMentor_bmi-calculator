@@ -1,0 +1,240 @@
+@use "../globals/mainStyles";
+
+#bg-hero-square {
+  position: absolute;
+  top: 0;
+  left: 2.4rem;
+  width: 97.8rem;
+  height: 73.7rem;
+  background: linear-gradient(
+    290.1deg,
+    #d6e6fe 0%,
+    rgba(214, 252, 254, 0) 100%
+  );
+  border-radius: 0px 0px 3.5rem 3.5rem;
+  z-index: -10;
+}
+
+#hero {
+  max-width: 116rem;
+  display: grid;
+  grid-template-areas:
+    "logo logo"
+    "intro calculator";
+  row-gap: 4.3rem;
+  column-gap: 13rem;
+  align-items: center;
+}
+
+#logo {
+  grid-area: logo;
+}
+
+#introduction {
+  grid-area: intro;
+  display: flex;
+  flex-direction: column;
+  row-gap: 3.5rem;
+
+  h1 {
+    @extend .headingXL;
+  }
+
+  p {
+    max-width: 46.5rem;
+  }
+}
+
+#calculator {
+  transition: width 0.4s;
+  grid-area: calculator;
+  width: 100%;
+  background-color: mainStyles.$color-pure-white;
+  padding: 3.2rem;
+  display: grid;
+  grid-template-rows: auto;
+  row-gap: 3.2rem;
+  box-shadow: 1.6rem 3.2rem 5.6rem rgba(143, 174, 207, 0.25);
+  border-radius: 1.6rem;
+}
+#calculator-heading {
+  @extend .headingM;
+}
+
+//                              Custom radio fields :)
+
+#select-calc-system {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 2.4rem;
+  @extend .paragraphM-Bold;
+}
+input[type="radio"] {
+  display: none;
+}
+label[for="metric-calac-system-radio-field"],
+label[for="imperial-calac-system-radio-field"] {
+  display: flex;
+  align-items: center;
+  position: relative;
+  font-weight: 600;
+  font-size: 1.6rem;
+}
+label[for="metric-calac-system-radio-field"]::before,
+label[for="imperial-calac-system-radio-field"]::before {
+  content: "";
+  height: 3.1rem;
+  width: 3.1rem;
+  border-radius: 100%;
+  border: solid 0.15rem mainStyles.$color-borders;
+  margin-right: 1.8rem;
+  transition: 0.3s;
+}
+input[type="radio"]:hover + label::before {
+  border: solid 0.15rem mainStyles.$color-blue;
+}
+input[type="radio"]:checked + label::before {
+  content: "●";
+  color: mainStyles.$color-blue;
+  font-size: 3rem;
+  background-color: #345ff626;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: 0.3s;
+  border: none !important;
+}
+label[for="metric-calac-system-radio-field"]::before,
+label[for="imperial-calac-system-radio-field"]::before,
+label[for="metric-calac-system-radio-field"],
+label[for="imperial-calac-system-radio-field"] {
+  cursor: pointer;
+}
+
+//                              Form - metric and imperial
+
+#metric-system-form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2.4rem;
+}
+
+#imperial-system-form {
+  display: grid;
+  gap: 2.4rem;
+}
+
+#metric-system-form,
+#imperial-system-form {
+  label {
+    @extend .paragraphS;
+    color: mainStyles.$color-dark-electric-blue;
+    display: flex;
+    flex-direction: column;
+    row-gap: 0.8rem;
+
+    div {
+      display: flex;
+      column-gap: 2.4rem;
+    }
+  }
+  input {
+    width: 100%;
+    max-width: 13.9rem;
+    outline: none;
+    border: none;
+    @extend .headingM;
+    cursor: inherit;
+  }
+
+  ::placeholder {
+    color: mainStyles.$color-borders;
+  }
+  input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+}
+
+.form-input-overlays {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 2rem 2.4rem;
+  border-radius: 1.2rem;
+  border: 0.1rem solid mainStyles.$color-borders;
+  @extend .headingM;
+  color: mainStyles.$color-blue;
+  cursor: pointer;
+  transition: border 0.5s;
+
+  input {
+    margin-right: 2.4rem;
+  }
+}
+
+.form-input-overlays:focus-within,
+.form-input-overlays:hover {
+  border: 0.1rem solid mainStyles.$color-blue;
+}
+
+//                              Welcom/BMI score box
+
+#welcome-or-calc-output-container {
+  background-color: mainStyles.$color-blue;
+  display: flex;
+  flex-direction: column;
+  row-gap: 1.6rem;
+  padding: 3.2rem;
+  background: linear-gradient(90deg, #345ff7 0%, #587dff 100%);
+  border-radius: 1.6rem 9rem 9rem 1.6rem;
+
+  span {
+    @extend .headingM;
+    color: mainStyles.$color-pure-white;
+  }
+  p {
+    @extend .paragraphS;
+    color: mainStyles.$color-pure-white;
+  }
+}
+
+//                              Some responsiveness
+
+@media screen and (width < 1200px) {
+  #bg-hero-square {
+    left: 0;
+    width: 100vw;
+  }
+  #hero {
+    grid-template-areas:
+      "logo"
+      "intro "
+      "calculator";
+  }
+  #introduction {
+    justify-self: center;
+    text-align: center;
+  }
+  #logo {
+    justify-self: center;
+  }
+}
+
+@media screen and (width < 590px) {
+  #introduction {
+    width: 90%;
+  }
+  #calculator {
+    place-self: center;
+    width: 90%;
+  }
+  #metric-system-form {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+  #imperial-system-form .form-input-overlays {
+    width: 50%;
+  }
+}
