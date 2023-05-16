@@ -4,6 +4,7 @@
   position: absolute;
   top: 0;
   left: 2.4rem;
+  // left: 2%;
   width: 97.8rem;
   height: 73.7rem;
   background: linear-gradient(
@@ -208,6 +209,8 @@ label[for="imperial-calac-system-radio-field"] {
     width: 100vw;
   }
   #hero {
+    width: 100%;
+    max-width: 68.6rem;
     grid-template-areas:
       "logo"
       "intro "
@@ -220,9 +223,13 @@ label[for="imperial-calac-system-radio-field"] {
   #logo {
     justify-self: center;
   }
+  #calculator {
+    width: 100%;
+    place-self: center;
+  }
 }
 
-@media screen and (width < 590px) {
+@media screen and (width < 720px) {
   #introduction {
     width: 90%;
   }
