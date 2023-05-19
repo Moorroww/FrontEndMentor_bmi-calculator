@@ -14,14 +14,19 @@ const imperialInputFields = document.querySelectorAll(
   ".imperial-system-data-inputs"
 );
 
+mode = 1; // 1 - metric, 2 - imperial
 //                            Switching between metric and imperial mode
 metricRadioBtn.addEventListener("click", () => {
   metricSystemForm.classList.remove("hidden");
   imperialSystemForm.classList.add("hidden");
+  mode = 1;
+  resetAllForm();
 });
 imperialRadioBtn.addEventListener("click", () => {
   imperialSystemForm.classList.remove("hidden");
   metricSystemForm.classList.add("hidden");
+  mode = 2;
+  resetAllForm();
 });
 
 //                            BMI calculator for metric system
@@ -35,7 +40,7 @@ function metricBmiCalc() {
 metricInputFields.forEach((field) => {
   field.addEventListener("input", () => {
     if (metricInputFields[0].value != "" && metricInputFields[1].value != "")
-      console.log(metricBmiCalc());
+      handleBmiCalculatorOutput();
   });
 });
 
@@ -72,7 +77,7 @@ imperialInputFieldsArray.forEach((field) => {
       (fieldValues[0] !== "" || fieldValues[1] !== "") &&
       (fieldValues[2] !== "" || fieldValues[3] !== "")
     ) {
-      console.log(imperialBmiCalc());
+      handleBmiCalculatorOutput();
     }
   });
 });
@@ -80,14 +85,47 @@ imperialInputFieldsArray.forEach((field) => {
 //                            Suggestion for each BMI group that will appear next to user BMI score
 function BmiScoreSuggestions(bmi) {
   if (bmi < 18.5) {
-    return "Your BMI suggests you are underweight. Your ideal weight is between 63.3kgs - 85.2kgs.";
+    return "Your BMI suggests you are underweight. Your ideal weight is between <b>63.3kgs - 85.2kgs</b>.";
   } else if (bmi >= 18.5 && bmi <= 24.9) {
-    return "Your BMI suggests you are a healthy weight. Your ideal weight is between 63.3kgs - 85.2kgs.";
+    return "Your BMI suggests you are a healthy weight. Your ideal weight is between <b>63.3kgs - 85.2kgs</b>.";
   } else if (bmi >= 25 && bmi <= 29.9) {
-    return "Your BMI suggests you are overweight. Your ideal weight is between 63.3kgs - 85.2kgs.";
+    return "Your BMI suggests you are overweight. Your ideal weight is between <b>63.3kgs - 85.2kgs</b>.";
   } else if (bmi >= 30) {
-    return "Your BMI suggests you are obese. Your ideal weight is between 63.3kgs - 85.2kgs.";
+    return "Your BMI suggests you are obese. Your ideal weight is between <b>63.3kgs - 85.2kgs</b>.";
   } else {
     return 0;
   }
+}
+
+//                            Showing BMI score
+
+const welcomeBoxElement = document.querySelector(
+  "#welcome-later-calc-output-container"
+);
+const CalcOutputBoxElement = document.querySelector("#calc-output-container");
+const bmiOutputBox = document.querySelector("#bmi-output");
+const bmiSuggestionBox = document.querySelector("#bmi-suggestion");
+
+function handleBmiCalculatorOutput() {
+  welcomeBoxElement.classList.add("hidden");
+
+  bmiOutputBox.innerHTML = mode == 1 ? metricBmiCalc() : imperialBmiCalc();
+  bmiSuggestionBox.innerHTML = BmiScoreSuggestions(
+    mode == 1 ? metricBmiCalc() : imperialBmiCalc()
+  );
+
+  CalcOutputBoxElement.classList.remove("hidden");
+}
+
+function resetAllForm() {
+  welcomeBoxElement.classList.remove("hidden");
+  CalcOutputBoxElement.classList.add("hidden");
+  bmiSuggestionBox = "";
+
+  metricInputFields.forEach((field) => {
+    field.value = "";
+  });
+  imperialInputFields.forEach((field) => {
+    field.value = "";
+  });
 }

@@ -180,9 +180,9 @@ label[for="imperial-calac-system-radio-field"] {
   border: 0.1rem solid mainStyles.$color-blue;
 }
 
-//                              Welcom/BMI score box
+//                              Welcom/BMI score box and calculator output box
 
-#welcome-or-calc-output-container {
+#welcome-later-calc-output-container {
   background-color: mainStyles.$color-blue;
   display: flex;
   flex-direction: column;
@@ -198,6 +198,39 @@ label[for="imperial-calac-system-radio-field"] {
   p {
     @extend .paragraphS;
     color: mainStyles.$color-pure-white;
+  }
+}
+
+#calc-output-container {
+  background-color: mainStyles.$color-blue;
+  display: flex;
+  gap: 2.4rem;
+  place-items: center;
+  padding: 3.2rem;
+  background: linear-gradient(90deg, #345ff7 0%, #587dff 100%);
+  border-radius: 1.6rem 9rem 9rem 1.6rem;
+
+  div {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+
+    #bmi-output {
+      @extend .headingXL;
+      color: mainStyles.$color-pure-white;
+    }
+  }
+  div {
+    @extend .paragraphM;
+    color: mainStyles.$color-pure-white;
+  }
+  p {
+    max-width: 19.6rem;
+    @extend .paragraphS;
+    color: mainStyles.$color-pure-white;
+    b {
+      font-weight: 700;
+    }
   }
 }
 
