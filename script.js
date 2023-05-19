@@ -31,7 +31,7 @@ function metricBmiCalc() {
 
   return ((weight / Math.pow(height, 2)) * 10000).toFixed(2);
 }
-//                            Checking if that works..
+
 metricInputFields.forEach((field) => {
   field.addEventListener("input", () => {
     if (metricInputFields[0].value != "" && metricInputFields[1].value != "")
@@ -40,36 +40,42 @@ metricInputFields.forEach((field) => {
 });
 
 //                            BMI calculator for imperial system
-// function imperialBmiCalc() {
-//   const heightFt =
-//     parseInt(document.querySelector("#height-ft").value) == "NaN"
-//       ? 0
-//       : parseInt(document.querySelector("#height-ft").value) * 12;
-//   const heightIn =
-//     parseInt(document.querySelector("#height-in").value) == "NaN"
-//       ? 0
-//       : parseInt(document.querySelector("#height-in").value) + heightFt;
-//   const weightSt =
-//     parseInt(document.querySelector("#weight-st").value) == "NaN"
-//       ? 0
-//       : parseInt(document.querySelector("#weight-st").value) * 14;
-//   const weightLbs =
-//     parseInt(document.querySelector("#weight-lbs").value) == "NaN"
-//       ? 0
-//       : parseInt(document.querySelector("#weight-lbs").value) + weightSt;
+function imperialBmiCalc() {
+  const heightFt = isNaN(parseInt(document.querySelector("#height-ft").value))
+    ? 0
+    : parseInt(document.querySelector("#height-ft").value);
+  const heightIn = isNaN(parseInt(document.querySelector("#height-in").value))
+    ? 0
+    : parseInt(document.querySelector("#height-in").value);
+  const weightSt = isNaN(parseInt(document.querySelector("#weight-st").value))
+    ? 0
+    : parseInt(document.querySelector("#weight-st").value);
+  const weightLbs = isNaN(parseInt(document.querySelector("#weight-lbs").value))
+    ? 0
+    : parseInt(document.querySelector("#weight-lbs").value);
 
-//   return ((weightLbs / Math.pow(heightIn, 2)) * 703).toFixed(2);
-// }
+  const heightCm = heightFt * 30.48 + heightIn * 2.54;
+  const weightKg = weightSt * 6.35029 + weightLbs * 0.453592;
 
-//                            Checking if that works, some problems with imperial system bcs of 4 input winows :/
+  if (heightCm !== 0) {
+    return (weightKg / Math.pow(heightCm / 100, 2)).toFixed(2);
+  } else {
+    return "Invalid height. Please provide a non-zero value.";
+  }
+}
 
-// imperialInputFields.forEach((field) => {
-//   field.addEventListener("input", () => {
-//     if (imperialBmiCalc() != "NaN") {
-//       console.log(imperialBmiCalc());
-//     }
-//   });
-// });
+const imperialInputFieldsArray = Array.from(imperialInputFields);
+imperialInputFieldsArray.forEach((field) => {
+  field.addEventListener("input", () => {
+    const fieldValues = imperialInputFieldsArray.map((field) => field.value);
+    if (
+      (fieldValues[0] !== "" || fieldValues[1] !== "") &&
+      (fieldValues[2] !== "" || fieldValues[3] !== "")
+    ) {
+      console.log(imperialBmiCalc());
+    }
+  });
+});
 
 //                            Suggestion for each BMI group that will appear next to user BMI score
 function BmiScoreSuggestions(bmi) {
