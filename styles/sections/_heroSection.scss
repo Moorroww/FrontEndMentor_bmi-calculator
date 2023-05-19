@@ -278,3 +278,10 @@ label[for="imperial-calac-system-radio-field"] {
     width: 50%;
   }
 }
+
+@media screen and (width < 500px) {
+  #calc-output-container {
+    flex-direction: column;
+    place-items: start;
+  }
+}
