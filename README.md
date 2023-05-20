@@ -28,8 +28,8 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [##](##)
-- Live Site URL: [##](##)
+- Solution URL: [FrontEndMentor](https://www.frontendmentor.io/solutions/bmi-calculator-K8HSKVlTa1)
+- Live Site URL: [Github Pages](https://moorroww.github.io/FrontEndMentor_bmi-calculator/)
 
 ## Author
 
