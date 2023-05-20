@@ -39,7 +39,12 @@ function metricBmiCalc() {
 
 metricInputFields.forEach((field) => {
   field.addEventListener("input", () => {
-    if (metricInputFields[0].value != "" && metricInputFields[1].value != "")
+    if (
+      metricInputFields[0].value != "" &&
+      metricInputFields[0].value != 0 &&
+      metricInputFields[1].value != "" &&
+      metricInputFields[1].value != 0
+    )
       handleBmiCalculatorOutput();
   });
 });
