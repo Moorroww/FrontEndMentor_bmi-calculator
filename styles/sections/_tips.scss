@@ -72,15 +72,7 @@
   #tips {
     padding: 5.6rem 2.8rem;
   }
-  #tip-tiles-container {
-    max-width: 68.6rem;
-    display: grid;
-    grid-template-columns: 1fr;
-    column-gap: 0;
-    row-gap: 4rem;
-  }
   .tip-tiles {
-    display: flex;
     flex-direction: column;
     row-gap: 3.2rem;
   }

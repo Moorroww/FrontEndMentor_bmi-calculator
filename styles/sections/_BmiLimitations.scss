@@ -1,0 +1,102 @@
+@use "../globals/mainStyles";
+
+#bmi-limitations {
+  position: relative;
+  //   max-width: 116rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  row-gap: 3.5rem;
+}
+
+#limitations-explained {
+  max-width: 56.4rem;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  gap: 3.5rem;
+
+  span {
+    @extend .headingL;
+  }
+}
+
+.limitations-tiles {
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
+  padding: 3.2rem;
+  max-width: 36.5rem;
+  box-shadow: 1.6rem 3.2rem 5.6rem rgba(143, 174, 207, 0.25);
+  border-radius: 1.6rem;
+  position: relative;
+
+  div {
+    display: flex;
+    align-items: center;
+    gap: 1.6rem;
+  }
+  div span {
+    @extend .headingS;
+  }
+}
+
+// Gender tile
+.limitations-tiles:nth-of-type(2) {
+  left: 10rem;
+}
+
+// Age tile
+.limitations-tiles:nth-of-type(3) {
+  left: 35rem;
+}
+
+// Muscle tile
+.limitations-tiles:nth-of-type(4) {
+  left: 20rem;
+}
+
+// Pregnancy tile
+.limitations-tiles:nth-of-type(5) {
+  left: 15rem;
+}
+
+@media screen and (width < 1200px) {
+  #bmi-limitations {
+    justify-items: center;
+    column-gap: 2.4rem;
+    max-width: 68.6rem;
+  }
+  .limitations-tiles {
+    position: static;
+  }
+  #limitations-explained {
+    // place-self: center;
+    text-align: center;
+    grid-column: 1/3;
+    margin-bottom: 2rem;
+  }
+
+  // Race tile
+  .limitations-tiles:nth-of-type(6) {
+    grid-column: 1/3;
+  }
+}
+
+@media screen and (width < 720px) {
+  #bmi-limitations {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+  }
+
+  // Race tile
+  .limitations-tiles:nth-of-type(6) {
+    grid-column: 1;
+  }
+
+  #limitations-explained {
+    // place-self: center;
+    text-align: center;
+    grid-column: 1;
+    margin-bottom: 2rem;
+  }
+}
