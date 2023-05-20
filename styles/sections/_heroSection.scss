@@ -2,9 +2,24 @@
 
 #bg-hero-square {
   position: absolute;
-  top: 0;
-  left: 2.4rem;
-  // left: 2%;
+  top: -7.5rem;
+  left: -10rem;
+  width: 97.8rem;
+  height: 73.7rem;
+  background: linear-gradient(
+    290.1deg,
+    #d6e6fe 0%,
+    rgba(214, 252, 254, 0) 100%
+  );
+  border-radius: 0px 0px 3.5rem 3.5rem;
+  z-index: -10;
+}
+
+#bg-hero-square-small {
+  display: none;
+  position: absolute;
+  top: -7.5rem;
+  left: 0;
   width: 97.8rem;
   height: 73.7rem;
   background: linear-gradient(
@@ -17,6 +32,7 @@
 }
 
 #hero {
+  position: relative;
   max-width: 116rem;
   display: grid;
   grid-template-areas:
@@ -238,9 +254,13 @@ label[for="imperial-calac-system-radio-field"] {
 
 @media screen and (width < 1200px) {
   #bg-hero-square {
-    left: 0;
+    display: none;
+  }
+  #bg-hero-square-small {
+    display: flex;
     width: 100vw;
   }
+
   #hero {
     width: 100%;
     max-width: 68.6rem;
